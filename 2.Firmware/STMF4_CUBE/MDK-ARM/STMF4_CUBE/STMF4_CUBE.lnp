@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp.sp
+"stmf4_cube\startup_stm32f407xx.o"
+"stmf4_cube\main.o"
+"stmf4_cube\stm32f4xx_it.o"
+"stmf4_cube\stm32f4xx_hal_msp.o"
+"stmf4_cube\stm32f4xx_hal_tim.o"
+"stmf4_cube\stm32f4xx_hal_tim_ex.o"
+"stmf4_cube\stm32f4xx_hal_uart.o"
+"stmf4_cube\stm32f4xx_hal_rcc.o"
+"stmf4_cube\stm32f4xx_hal_rcc_ex.o"
+"stmf4_cube\stm32f4xx_hal_flash.o"
+"stmf4_cube\stm32f4xx_hal_flash_ex.o"
+"stmf4_cube\stm32f4xx_hal_flash_ramfunc.o"
+"stmf4_cube\stm32f4xx_hal_gpio.o"
+"stmf4_cube\stm32f4xx_hal_dma_ex.o"
+"stmf4_cube\stm32f4xx_hal_dma.o"
+"stmf4_cube\stm32f4xx_hal_pwr.o"
+"stmf4_cube\stm32f4xx_hal_pwr_ex.o"
+"stmf4_cube\stm32f4xx_hal_cortex.o"
+"stmf4_cube\stm32f4xx_hal.o"
+"stmf4_cube\stm32f4xx_hal_exti.o"
+"stmf4_cube\system_stm32f4xx.o"
+"stmf4_cube\ax_delay.o"
+"stmf4_cube\ax_ps2.o"
+--strict --scatter "STMF4_CUBE\STMF4_CUBE.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "STMF4_CUBE.map" -o STMF4_CUBE\STMF4_CUBE.axf
