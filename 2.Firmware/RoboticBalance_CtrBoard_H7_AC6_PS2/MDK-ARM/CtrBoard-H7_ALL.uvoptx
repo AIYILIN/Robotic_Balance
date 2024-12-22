@@ -183,64 +183,69 @@
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>pid_pit</ItemText>
+          <ItemText>my_ps2,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>pid_yaw</ItemText>
+          <ItemText>pid_speed</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>pid_spd[0]</ItemText>
+          <ItemText>pid_pit</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
           <WinNumber>1</WinNumber>
-          <ItemText>pid_spd[1]</ItemText>
-        </Ww>
-        <Ww>
-          <count>9</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>my_ps2,0x10</ItemText>
+          <ItemText>pid_yaw</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>balance_pid_out</ItemText>
+          <ItemText>pid_speed_out_left</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>yaw_pid_out</ItemText>
+          <ItemText>pid_speed_out_right</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>2</WinNumber>
-          <ItemText>left_motor_pid_out</ItemText>
+          <ItemText>pid_balance_out_left</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>2</WinNumber>
-          <ItemText>right_motor_pid_out</ItemText>
+          <ItemText>pid_balance_out_right</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>2</WinNumber>
-          <ItemText>speed_left_pid_out</ItemText>
+          <ItemText>pid_yaw_out</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>2</WinNumber>
-          <ItemText>speed_right_pid_out</ItemText>
+          <ItemText>pid_left_motor_out</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>2</WinNumber>
-          <ItemText>motor_pid_out</ItemText>
+          <ItemText>pid_right_motor_out</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>motor_ctrl</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>\\CtrBoard_H7_ALL\../App/ctr_task.c\motor_ctrl</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>

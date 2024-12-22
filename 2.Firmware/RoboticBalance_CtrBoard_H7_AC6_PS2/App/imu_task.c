@@ -16,7 +16,7 @@ float acc[3] = {0.0f};
 static float temp = 0.0f;
 
 float imuQuat[4] = {0.0f};
-float imuAngle[3] = {0.0f};
+float imuAngle[6] = {0.0f};
 
 float out = 0;
 float err = 0;
@@ -52,6 +52,18 @@ void GetAngle(float q[4], float *yaw, float *pitch, float *roll)
 * @retval None
 */
 /* USER CODE END Header_ImuTask_Entry */
+int angle_yaw_flag = 0;
+void NormalizeAngle(float* angle, float* angle_360, float* angle_last, float* angel_normalize)
+{
+    *angle_360 = *angle;
+
+    if (*angle_360 > 100.0f && *angle_last < -100.0f) angle_yaw_flag++;
+    else if (*angle_360 < -100.0f && *angle_last > 100.0f) angle_yaw_flag--;
+
+    imuAngle[INS_YAW_NORMALIZE] = *angle_360 - angle_yaw_flag * 360.0f;    
+    imuAngle[INS_YAW_last] = *angle_360;
+}
+
 void ImuTask_Entry(void const * argument)
 {
     /* USER CODE BEGIN ImuTask_Entry */
@@ -70,13 +82,16 @@ void ImuTask_Entry(void const * argument)
         
         AHRS_update(imuQuat, gyro, acc);
         GetAngle(imuQuat, imuAngle + INS_YAW_ADDRESS_OFFSET, imuAngle + INS_PITCH_ADDRESS_OFFSET, imuAngle + INS_ROLL_ADDRESS_OFFSET);
-			
+            
         /* 将欧拉角从弧度转换为度数 */ 
 
         imuAngle[INS_YAW_ADDRESS_OFFSET]   *= (180.0f / 3.1415926f); // 偏航角
         imuAngle[INS_PITCH_ADDRESS_OFFSET] *= (180.0f / 3.1415926f); // 俯仰角
         imuAngle[INS_ROLL_ADDRESS_OFFSET]  *= (180.0f / 3.1415926f); // 滚动角
 
+        /* 规范化偏航角，保持其在-180°到180°范围内 */
+        NormalizeAngle(&imuAngle[INS_YAW_ADDRESS_OFFSET], &imuAngle[INS_YAW_360], &imuAngle[INS_YAW_last], &imuAngle[INS_YAW_NORMALIZE]);
+        
         err_ll = err_l;
         err_l = err;
         err = DES_TEMP - temp;
@@ -94,6 +109,7 @@ void ImuTask_Entry(void const * argument)
     }
     /* USER CODE END ImuTask_Entry */
 }
+
 
 
 

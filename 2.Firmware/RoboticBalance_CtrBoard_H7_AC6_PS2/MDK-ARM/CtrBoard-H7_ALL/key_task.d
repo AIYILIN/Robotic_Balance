@@ -64,4 +64,5 @@ ctrboard-h7_all/key_task.o: ..\App\key_task.c ..\App\inc\key_task.h \
   ..\Bsp\inc\bsp_buzzer.h ..\Core\Inc\tim.h ..\Bsp\inc\cybergear.h \
   ..\Core\Inc\FDCAN.h ..\Bsp\inc\can_bsp.h \
   D:\KEIL_539\ARM\ARMCLANG\include\stdbool.h ..\Bsp\inc\ws2812.h \
-  ..\Bsp\inc\bsp_power_enable.h
+  ..\Bsp\inc\bsp_power_enable.h ..\App\inc\ctr_task.h \
+  ..\Algorithm\inc\motor_pid.h ..\Bsp\inc\bsp_ps2.h

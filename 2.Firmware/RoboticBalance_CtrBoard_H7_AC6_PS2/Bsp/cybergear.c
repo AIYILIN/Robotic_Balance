@@ -82,11 +82,16 @@ void Init_Motor(MotorGroup *motors ,uint8_t Can_Id ,int motor_num,float mode)
 		motor->Motor_Nbr=motor_num;
 
 		Set_Mode(motors,motor_num,mode);
+		osDelay(1);
 		Enable_Motor(motors,motor_num);
+		osDelay(1);
 
-		Set_Motor_Parameter(motors,motor_num,Cur_Kp,0.125,'f');
-		Set_Motor_Parameter(motors,motor_num,Cur_Ki,0.0158,'f');
-		Set_Motor_Parameter(motors,motor_num,Cur_Filt_Gain,0.1,'f');//电流滤波系数
+		Set_Motor_Parameter(motors,motor_num,Spd_Kp,2,'f');
+		osDelay(1);
+		Set_Motor_Parameter(motors,motor_num,Spd_Ki,0.2,'f');
+		osDelay(1);
+		Set_Motor_Parameter(motors,motor_num,Limit_Cur,5,'f');//电流滤波系数
+		osDelay(1);
 
 		// Set_Motor_Parameter(motors,motor_num,Spd_Kp,2,'f');		//spd_kp
 		// Set_Motor_Parameter(motors,motor_num,Spd_Kp,0.5,'f');	//spd_ki
@@ -97,11 +102,11 @@ void Init_Motor(MotorGroup *motors ,uint8_t Can_Id ,int motor_num,float mode)
 void Init_Motor_All(void)
 {
 	Init_Motor(&Motors,101,1,Speed_mode);
-	Init_Motor(&Motors,102,2,Speed_mode);
+	// Init_Motor(&Motors,102,2,Speed_mode);
 	Init_Motor(&Motors,103,3,Speed_mode);
-	Init_Motor(&Motors,104,4,Speed_mode);
-	Init_Motor(&Motors,105,5,Speed_mode);
-	Init_Motor(&Motors,106,6,Speed_mode);
+	// Init_Motor(&Motors,104,4,Speed_mode);
+	// Init_Motor(&Motors,105,5,Speed_mode);
+	// Init_Motor(&Motors,106,6,Speed_mode);
 
 
 }
